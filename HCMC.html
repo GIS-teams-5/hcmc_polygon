@@ -20,7 +20,7 @@
   </style>
 
   <script>
-    require(["esri/Map", "esri/views/MapView", "esri/Graphic"], (Map, MapView, Graphic) => {
+    require(["esri/Map", "esri/views/MapView", "esri/Graphic", "esri/symbols/PictureMarkerSymbol"], (Map, MapView, Graphic, PictureMarkerSymbol)=> {
       const map = new Map({
         basemap: "topo-vector"
       });
@@ -32,7 +32,91 @@
         zoom: 10
       });
 
+       /***************************
+       * NHẬT - THÊM 3 ĐIỂM
+       ***************************/
+      
+      /*** Thêm điểm 1: Quán ăn DƯƠNG THÀNH ****/
+      const point = {
+                    type: "point",
+                    longitude: 106.6454659,
+                    latitude: 10.7580735
+                };
+      // Tạo biểu tượng cho marker sử dụng hình ảnh
+      const symbol = new PictureMarkerSymbol({
+                    url: "https://png.pngtree.com/png-clipart/20221221/original/pngtree-online-store-website-png-image_8790103.png",
+                    width: "30px",
+                    height: "30px"
+                });
+      // Tạo template cho popup với thông tin chi tiết
+      const popupTemplate = {
+                    title: "{name}",
+                    content: `
+                <b>Địa chỉ:</b> 68 Phan Xích Long, Phường 16, Quận 11, Hồ Chí Minh, Việt Nam<br>
+                <b>Giờ mở cửa:</b> 8:00 AM - 10:00 PM
+                <img src="https://lh5.googleusercontent.com/p/AF1QipOawrXAiARIPUtDTIlbtJXY9irutc5kUd2fU8qn=w408-h306-k-no" alt="Hình ảnh Quán ăn DƯƠNG THÀNH" style="max-width: 100%; height: auto;">
+              `
+                };
+      // Tạo graphic cho điểm Quán ăn DƯƠNG THÀNH
+      const pointGraphic = new Graphic({
+                    geometry: point,
+                    symbol: symbol,
+                    attributes: {name: "Quán ăn DƯƠNG THÀNH"},
+                    popupTemplate: popupTemplate
+                });
+      /******Thêm điểm 2***********/
+      const point2 = {
+                    type: "point",
+                    longitude: 106.640681,
+                    latitude: 10.7570948
+                };
+      const symbol2 = new PictureMarkerSymbol({
+                    url: "https://img.lovepik.com/original_origin_pic/18/05/02/ae18ae0b2aac0387be564828deb190e8.png_wh860.png",
+                    width: "30px",
+                    height: "30px"
+                });
+      const popupTemplate2 = {
+                    title: "BIYOKI Family & Kids Coffee",
+                    content: `
+            <b>Địa chỉ:</b> 304 Đ. Minh Phụng, Phường 2, Quận 11, Hồ Chí Minh, Việt Nam<br>
+            <b>Giờ mở cửa:</b> 7:30 AM - 10:00 PM
+            <img src="https://lh5.googleusercontent.com/p/AF1QipN8faeMHdrbAuf3GgvnT2XnGVXBC7tvghffoxZA=w427-h240-k-no" alt="BIYOKI Family & Kids Coffee" style="max-width: 100%; height: auto;">
+          `
+                };
+      const graphic2 = new Graphic({
+                    geometry: point2,
+                    symbol: symbol2,
+                    popupTemplate: popupTemplate2
+                });
+      /******Thêm điểm 3***********/
+      const point3 = {
+                    type: "point",
+                    longitude: 106.640646,
+                    latitude: 10.7676586
+                };
+      const symbol3 = new PictureMarkerSymbol({
+                    url: "https://png.pngtree.com/png-clipart/20190516/original/pngtree-supermarket-supermarket-cartoon-simple-cartoon-simple-png-image_3854973.jpg",
+                    width: "24px",
+                    height: "24px"
+                });
+      const popupTemplate3 = {
+                    title: "Siêu thị Bách hóa XANH 59 Bình Thới",
+                    content: `
+            <b>Địa chỉ:</b> 59 Bình Thới, Phường 11, Quận 11, Hồ Chí Minh 700000, Việt Nam<br>
+            <b>Giờ mở cửa:</b> 7:30 AM - 12:00 PM
+            <img src="https://lh5.googleusercontent.com/p/AF1QipPzw_f4eXyd2tcQIBv1Iez1XjbH4sul56wmE3kB=w408-h306-k-no" alt="Siêu thị Bách hóa XANH 59 Bình Thới" style="max-width: 100%; height: auto;">
+          `
+                };
+      const graphic3 = new Graphic({
+                    geometry: point3,
+                    symbol: symbol3,
+                    popupTemplate: popupTemplate3
+                });
+      // Thêm graphic vào view
+      view.graphics.addMany([pointGraphic,graphic2, graphic3]);
+      
 
+      
       /***************************
        * Create a polygon graphic
        ***************************/
