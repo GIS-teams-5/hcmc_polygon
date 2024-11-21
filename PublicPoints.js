@@ -33,7 +33,7 @@ function createThreePublicPoint(Point, Graphic) {
         "https://sbay.com.vn/upload/editor/%E1%BA%A2nh%20%20%C4%91%C3%A0o%20t%E1%BA%A1o%20h%E1%BB%87%20th%E1%BB%91ng/tan-son-nhat.jpg",
     },
   ];
-  console.log(publicPoints);
+
   const graphicList = [];
   publicPoints.forEach((publicPoint) => {
     const point = new Point({
@@ -41,8 +41,9 @@ function createThreePublicPoint(Point, Graphic) {
       latitude: publicPoint.latitude,
     });
 
+    // Create symbol picture
     var symbol = {
-      type: "picture-marker", // autocasts as new PictureMarkerSymbol()
+      type: "picture-marker",
       url: publicPoint.url,
       width: "32px",
       height: "32px",
@@ -61,7 +62,7 @@ function createThreePublicPoint(Point, Graphic) {
       content:
         "<div class='popup-content'><img src='{Image}' height='200px' alt='image description'></div> <br> <b>{Name}</b> located at <b>{Location}</b>. <br> Phone Number: <b>{PhoneNumber}</b>",
     };
-
+    // Create graphic
     const pointGraphic = new Graphic({
       geometry: point,
       symbol: symbol,
