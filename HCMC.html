@@ -617,12 +617,45 @@
           width: 1
         }
       };
+      const binhChanhdistrictData = [
+    {
+        name: "Quận Bình Chánh",
+        area: "252.7 km²",
+        location: "Phía Tây Nam Thành phố",
+        units: "16 xã và thị trấn"
+    }
+];
+const polygonGraphic1 = new Graphic({
+  geometry: polygon1,
+  symbol: fillSymbol1,
+  attributes: {
+      name: "Quận Bình Chánh",
+      area: "252.7 km²",
+      location: "Phía Tây Nam Thành phố",
+      units: "16 xã và thị trấn",
+      temperature: "30°C",
+      rainfall: "2.5 mm",
+      wind: "12 km/h"
+  },
+  popupTemplate: {
+      title: "{name}",
+      content: [{
+          type: "fields",
+          fieldInfos: [
+              { fieldName: "area", label: "Diện tích" },
+              { fieldName: "location", label: "Vị trí" },
+              { fieldName: "units", label: "Đơn vị hành chính" },
+              { fieldName: "temperature", label: "Nhiệt độ" },
+              { fieldName: "rainfall", label: "Lượng mưa" },
+              { fieldName: "wind", label: "Tốc độ gió" }
+          ]
+      }]
+  }
+});
 
-      // Add the geometry and symbol to a new graphic
-      const polygonGraphic1 = new Graphic({
-        geometry: polygon1,
-        symbol: fillSymbol1
-      });
+view.graphics.add(polygonGraphic1);
+
+
 
 
 
@@ -690,7 +723,6 @@
         ]
       };
 
-      // Symbol cho polygon thứ 2 (màu xanh dương)
       const fillSymbol2 = {
         type: "simple-fill",
         color: [0, 0, 255, 0.5], // Màu xanh dương
@@ -699,16 +731,42 @@
           width: 1
         }
       };
+      const district11Data = {
+        name: "Quận 11",
+        area: "5.14 km²",
+        location: "Tây Bắc Thành phố",
+        units: "16 phường"
+    };
+    const polygonGraphic2 = new Graphic({
+      geometry: polygon2,
+      symbol: fillSymbol2,
+      attributes: {
+          ...district11Data,
+          temperature: "31°C",
+          rainfall: "2.1 mm",
+          wind: "15 km/h"
+      },
+      popupTemplate: {
+          title: "{name}",
+          content: [{
+              type: "fields",
+              fieldInfos: [
+                  { fieldName: "area", label: "Diện tích" },
+                  { fieldName: "location", label: "Vị trí" },
+                  { fieldName: "units", label: "Đơn vị hành chính" },
+                  { fieldName: "temperature", label: "Nhiệt độ" },
+                  { fieldName: "rainfall", label: "Lượng mưa" },
+                  { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+          }]
+      }
+  });
 
       // Tạo graphic cho polygon thứ 2
-      const polygonGraphic2 = new Graphic({
-        geometry: polygon2,
-        symbol: fillSymbol2
-      });
+      view.graphics.add(polygonGraphic2);
 
 
-
-
+      
       // Polygon thứ 3 (Quận Bình Tân)
       const polygon3 = {
         type: "polygon",
@@ -873,15 +931,41 @@
           width: 1
         }
       };
+      const binhTandistrictData = {
+        name: "Quận Bình Tân",
+        area: "52,02 km²",
+        location: "phía Tây thành phố ",
+        units: "10 phường"
+    };
+    const polygonGraphic3 = new Graphic({
+      geometry: polygon3,
+      symbol: fillSymbol3,
+      attributes: {
+          ...binhTandistrictData,
+          temperature: "31°C",
+          rainfall: "2.1 mm",
+          wind: "3.08 km/h"
+      },
+      popupTemplate: {
+          title: "{name}",
+          content: [{
+              type: "fields",
+              fieldInfos: [
+                  { fieldName: "area", label: "Diện tích" },
+                  { fieldName: "location", label: "Vị trí" },
+                  { fieldName: "units", label: "Đơn vị hành chính" },
+                  { fieldName: "temperature", label: "Nhiệt độ" },
+                  { fieldName: "rainfall", label: "Lượng mưa" },
+                  { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+          }]
+      }
+  });
 
-      // Tạo graphic cho polygon thứ 2
-      const polygonGraphic3 = new Graphic({
-        geometry: polygon3,
-        symbol: fillSymbol3
-      });
+      // Tạo graphic cho polygon thứ 3
+      view.graphics.add(polygonGraphic3);
 
-
-
+      
 
 
       // Polygon thứ 4 (Quận 6)
@@ -965,11 +1049,39 @@
         }
       };
 
+      const district6Data = {
+        name: "Quận 6",
+        area: "7.19 km²",
+        location: "Tây Nam Thành phố ",
+        units: "14 phường"
+    };
+    const polygonGraphic4 = new Graphic({
+      geometry: polygon4,
+      symbol: fillSymbol4,
+      attributes: {
+          ...district6Data,
+          temperature: "31°C",
+          rainfall: "2.3 mm",
+          wind: "14 km/h"
+      },
+      popupTemplate: {
+          title: "{name}",
+          content: [{
+              type: "fields",
+              fieldInfos: [
+                  { fieldName: "area", label: "Diện tích" },
+                  { fieldName: "location", label: "Vị trí" },
+                  { fieldName: "units", label: "Đơn vị hành chính" },
+                  { fieldName: "temperature", label: "Nhiệt độ" },
+                  { fieldName: "rainfall", label: "Lượng mưa" },
+                  { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+          }]
+      }
+  });
+
       // Tạo graphic cho polygon thứ 4
-      const polygonGraphic4 = new Graphic({
-        geometry: polygon4,
-        symbol: fillSymbol4
-      });
+      view.graphics.add(polygonGraphic4);
 
 
 
@@ -1127,11 +1239,40 @@
         }
       };
 
+      const district8Data = {
+        name: "Quận 8",
+        area: "19.18 km²",
+        location: "Nam Thành phố ",
+        units: "16 phường"
+    };
+    const polygonGraphic5 = new Graphic({
+      geometry: polygon5,
+      symbol: fillSymbol5,
+      attributes: {
+          ...district8Data,
+          temperature: "32°C",
+          rainfall: "1.8 mm",
+          wind: "16 km/h"
+      },
+      popupTemplate: {
+          title: "{name}",
+          content: [{
+              type: "fields",
+              fieldInfos: [
+                  { fieldName: "area", label: "Diện tích" },
+                  { fieldName: "location", label: "Vị trí" },
+                  { fieldName: "units", label: "Đơn vị hành chính" },
+                  { fieldName: "temperature", label: "Nhiệt độ" },
+                  { fieldName: "rainfall", label: "Lượng mưa" },
+                  { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+          }]
+      }
+  });
+
       // Tạo graphic cho polygon thứ 5
-      const polygonGraphic5 = new Graphic({
-        geometry: polygon5,
-        symbol: fillSymbol5
-      });
+      view.graphics.add(polygonGraphic5);
+
 
 
 
@@ -1308,11 +1449,39 @@
         }
       };
 
+      const goVapdistrictData = {
+        name: "Quận Gò Vấp",
+        area: "19.74 km²",
+        location: "Bắc Thành phố ",
+        units: "17 phường"
+    };
+    const polygonGraphic6 = new Graphic({
+      geometry: polygon6,
+      symbol: fillSymbol6,
+      attributes: {
+          ...goVapdistrictData,
+          temperature: "30°C",
+          rainfall: "2.5 mm",
+          wind: "13 km/h"
+      },
+      popupTemplate: {
+          title: "{name}",
+          content: [{
+              type: "fields",
+              fieldInfos: [
+                  { fieldName: "area", label: "Diện tích" },
+                  { fieldName: "location", label: "Vị trí" },
+                  { fieldName: "units", label: "Đơn vị hành chính" },
+                  { fieldName: "temperature", label: "Nhiệt độ" },
+                  { fieldName: "rainfall", label: "Lượng mưa" },
+                  { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+          }]
+      }
+  });
+
       // Tạo graphic cho polygon thứ 6
-      const polygonGraphic6 = new Graphic({
-        geometry: polygon6,
-        symbol: fillSymbol6
-      });
+      view.graphics.add(polygonGraphic6);
 
 
 
@@ -1402,11 +1571,39 @@
         }
       };
 
+      const tanPhudistrictData = {
+        name: "Quận Tân Phú",
+        area: "16.06 km²",
+        location: "Tây Bắc Thành phố ",
+        units: "11 phường"
+    };
+    const polygonGraphic7 = new Graphic({
+      geometry: polygon7,
+      symbol: fillSymbol7,
+      attributes: {
+          ...tanPhudistrictData,
+          temperature: "31°C",
+          rainfall: "2.0 mm",
+          wind: "15 km/h"
+      },
+      popupTemplate: {
+          title: "{name}",
+          content: [{
+              type: "fields",
+              fieldInfos: [
+                  { fieldName: "area", label: "Diện tích" },
+                  { fieldName: "location", label: "Vị trí" },
+                  { fieldName: "units", label: "Đơn vị hành chính" },
+                  { fieldName: "temperature", label: "Nhiệt độ" },
+                  { fieldName: "rainfall", label: "Lượng mưa" },
+                  { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+          }]
+      }
+  });
+
       // Tạo graphic cho polygon thứ 7
-      const polygonGraphic7 = new Graphic({
-        geometry: polygon7,
-        symbol: fillSymbol7
-      });
+      view.graphics.add(polygonGraphic7);
 
 
 
@@ -1523,12 +1720,39 @@
         }
       };
 
-      // Tạo graphic cho polygon thứ 8
-      const polygonGraphic8 = new Graphic({
-        geometry: polygon8,
-        symbol: fillSymbol8
-      });
+      const tanBinhdistrictData = {
+        name: "Quận Tân Bình",
+        area: "22.38.06 km²",
+        location: "Tây Bắc Thành phố ",
+        units: "15 phường"
+    };
+    const polygonGraphic8 = new Graphic({
+      geometry: polygon8,
+      symbol: fillSymbol8,
+      attributes: {
+          ...tanBinhdistrictData,
+          temperature: "30°C",
+          rainfall: "2.2 mm",
+          wind: "14 km/h"
+      },
+      popupTemplate: {
+          title: "{name}",
+          content: [{
+              type: "fields",
+              fieldInfos: [
+                  { fieldName: "area", label: "Diện tích" },
+                  { fieldName: "location", label: "Vị trí" },
+                  { fieldName: "units", label: "Đơn vị hành chính" },
+                  { fieldName: "temperature", label: "Nhiệt độ" },
+                  { fieldName: "rainfall", label: "Lượng mưa" },
+                  { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+          }]
+      }
+  });
 
+      // Tạo graphic cho polygon thứ 8
+      view.graphics.add(polygonGraphic8);
 
 
 
