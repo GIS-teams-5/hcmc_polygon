@@ -17,10 +17,64 @@
       height: 100%;
       width: 100%;
     }
+	.popup {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      font-size: 14px;
+    }
+    .popup h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #333;
+      text-align: center;
+    }
+    .popup .info {
+      margin-bottom: 15px;
+    }
+    .popup .info table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .popup .info td, .popup .info th {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    .popup .info th {
+      font-weight: bold;
+      color: #2d8ae7;
+    }
+    .popup .info img {
+      max-width: 50px;
+      margin-right: 10px;
+    }
+    .popup .forecast {
+      background-color: #e7f3ff;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+    .popup .forecast .forecast-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .popup .forecast .forecast-item:last-child {
+      margin-bottom: 0;
+    }
   </style>
 
   <script>
-    require(["esri/Map", "esri/views/MapView", "esri/Graphic"], (Map, MapView, Graphic) => {
+    require([
+	"esri/Map", 
+	"esri/views/MapView", 
+	"esri/Graphic",
+	"esri/PopupTemplate"
+	], (Map, MapView, Graphic,PopupTemplate) => {
       const map = new Map({
         basemap: "topo-vector"
       });
@@ -617,11 +671,17 @@
           width: 1
         }
       };
-
+	
+	  //Informations
+      const popupTemp1 = new PopupTemplate({
+        title: "Thời tiết tại Quận Bình Chánh, Hồ Chí Minh",
+        content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>30°C</td></tr><tr><th>Độ ẩm</th><td>80%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>15 km/h</td></tr><tr><th>Lượng mưa</th><td>2mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>30°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>28°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>"
+      });
       // Add the geometry and symbol to a new graphic
       const polygonGraphic1 = new Graphic({
         geometry: polygon1,
-        symbol: fillSymbol1
+        symbol: fillSymbol1,
+		popupTemplate: popupTemp1
       });
 
 
@@ -699,11 +759,15 @@
           width: 1
         }
       };
+	
+	//Informations
+	const popupTemp2 = new PopupTemplate({ title: "Thời tiết tại Quận 11, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>30°C</td></tr><tr><th>Độ ẩm</th><td>78%</td></tr><tr><th>Hướng gió</th><td>Nam</td></tr><tr><th>Tốc độ gió</th><td>12 km/h</td></tr><tr><th>Lượng mưa</th><td>1mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>30°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>29°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>28°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>29°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 2
       const polygonGraphic2 = new Graphic({
         geometry: polygon2,
-        symbol: fillSymbol2
+        symbol: fillSymbol2,
+		popupTemplate: popupTemp2
       });
 
 
@@ -874,10 +938,13 @@
         }
       };
 
+	const popupTemp3 = new PopupTemplate({ title: "Thời tiết tại Quận Bình Tân, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>31°C</td></tr><tr><th>Độ ẩm</th><td>77%</td></tr><tr><th>Hướng gió</th><td>Nam</td></tr><tr><th>Tốc độ gió</th><td>13 km/h</td></tr><tr><th>Lượng mưa</th><td>0mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>30°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>29°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
+
       // Tạo graphic cho polygon thứ 2
       const polygonGraphic3 = new Graphic({
         geometry: polygon3,
-        symbol: fillSymbol3
+        symbol: fillSymbol3,
+		popupTemplate: popupTemp3
       });
 
 
@@ -964,11 +1031,13 @@
           width: 1
         }
       };
+	const popupTemp4 = new PopupTemplate({ title: "Thời tiết tại Quận 6, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>30°C</td></tr><tr><th>Độ ẩm</th><td>75%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>10 km/h</td></tr><tr><th>Lượng mưa</th><td>3mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>30°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>29°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>28°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>29°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 4
       const polygonGraphic4 = new Graphic({
         geometry: polygon4,
-        symbol: fillSymbol4
+        symbol: fillSymbol4,
+		popupTemplate: popupTemp4
       });
 
 
@@ -1126,11 +1195,13 @@
           width: 1
         }
       };
+	const popupTemp5 = new PopupTemplate({ title: "Thời tiết tại Quận 8, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>32°C</td></tr><tr><th>Độ ẩm</th><td>80%</td></tr><tr><th>Hướng gió</th><td>Nam</td></tr><tr><th>Tốc độ gió</th><td>14 km/h</td></tr><tr><th>Lượng mưa</th><td>0mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>31°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>30°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>33°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>31°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 5
       const polygonGraphic5 = new Graphic({
         geometry: polygon5,
-        symbol: fillSymbol5
+        symbol: fillSymbol5,
+		popupTemplate: popupTemp5
       });
 
 
@@ -1307,14 +1378,14 @@
           width: 1
         }
       };
+	const popupTemp6 = new PopupTemplate({ title: "Thời tiết tại Quận Gò Vấp, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>30°C</td></tr><tr><th>Độ ẩm</th><td>78%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>12 km/h</td></tr><tr><th>Lượng mưa</th><td>1mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>30°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>29°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>28°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>29°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 6
       const polygonGraphic6 = new Graphic({
         geometry: polygon6,
-        symbol: fillSymbol6
+        symbol: fillSymbol6,
+		popupTemplate: popupTemp6
       });
-
-
 
 
       // Polygon thứ 7 (Quận Tân Phú)
@@ -1401,11 +1472,13 @@
           width: 1
         }
       };
+		const popupTemp7 = new PopupTemplate({ title: "Thời tiết tại Quận Tân Phú, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>31°C</td></tr><tr><th>Độ ẩm</th><td>76%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>12 km/h</td></tr><tr><th>Lượng mưa</th><td>1mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>30°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>29°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 7
       const polygonGraphic7 = new Graphic({
         geometry: polygon7,
-        symbol: fillSymbol7
+        symbol: fillSymbol7,
+		popupTemplate: popupTemp7
       });
 
 
@@ -1522,11 +1595,13 @@
           width: 1
         }
       };
+const popupTemp8 = new PopupTemplate({ title: "Thời tiết tại Quận Tân Bình, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>31°C</td></tr><tr><th>Độ ẩm</th><td>79%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>16 km/h</td></tr><tr><th>Lượng mưa</th><td>0mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>30°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>28°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 8
       const polygonGraphic8 = new Graphic({
         geometry: polygon8,
-        symbol: fillSymbol8
+        symbol: fillSymbol8,
+		popupTemplate: popupTemp8
       });
 
 
@@ -1784,11 +1859,13 @@
           width: 1
         }
       };
+const popupTemp9 = new PopupTemplate({ title: "Thời tiết tại Quận 12, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>31°C</td></tr><tr><th>Độ ẩm</th><td>77%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>13 km/h</td></tr><tr><th>Lượng mưa</th><td>1mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>30°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>29°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 9
       const polygonGraphic9 = new Graphic({
         geometry: polygon9,
-        symbol: fillSymbol9
+        symbol: fillSymbol9,
+		popupTemplate: popupTemp9
       });
 
 
@@ -2045,11 +2122,13 @@
           width: 1
         }
       };
+const popupTemp10 = new PopupTemplate({ title: "Thời tiết tại Quận Hóc Môn, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>33°C</td></tr><tr><th>Độ ẩm</th><td>82%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>18 km/h</td></tr><tr><th>Lượng mưa</th><td>1mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>33°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>32°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>30°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>34°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>32°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 10
       const polygonGraphic10 = new Graphic({
         geometry: polygon10,
-        symbol: fillSymbol10
+        symbol: fillSymbol10,
+		popupTemplate: popupTemp10
       });
 
 
@@ -2510,11 +2589,13 @@
           width: 1
         }
       };
+const popupTemp11 = new PopupTemplate({ title: "Thời tiết tại Quận Củ Chi, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>33°C</td></tr><tr><th>Độ ẩm</th><td>70%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>12 km/h</td></tr><tr><th>Lượng mưa</th><td>0mm</td></tr><tr><th>Tình trạng</th><td>Nắng mạnh</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>33°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>32°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>30°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>34°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>32°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 11
       const polygonGraphic11 = new Graphic({
         geometry: polygon11,
-        symbol: fillSymbol11
+        symbol: fillSymbol11,
+		popupTemplate: popupTemp11
       });
 
 
@@ -2604,11 +2685,13 @@
           width: 1
         }
       };
+const popupTemp12 = new PopupTemplate({ title: "Thời tiết tại Quận Phú Nhuận, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>31°C</td></tr><tr><th>Độ ẩm</th><td>76%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>12 km/h</td></tr><tr><th>Lượng mưa</th><td>1mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>30°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>29°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 12
       const polygonGraphic12 = new Graphic({
         geometry: polygon12,
-        symbol: fillSymbol12
+        symbol: fillSymbol12,
+		popupTemplate: popupTemp12
       });
 
 
@@ -2681,11 +2764,13 @@
           width: 1
         }
       };
+const popupTemp13 = new PopupTemplate({ title: "Thời tiết tại Quận 5, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>30°C</td></tr><tr><th>Độ ẩm</th><td>77%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>10 km/h</td></tr><tr><th>Lượng mưa</th><td>2mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>30°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>29°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>28°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>29°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 13
       const polygonGraphic13 = new Graphic({
         geometry: polygon13,
-        symbol: fillSymbol13
+        symbol: fillSymbol13,
+		popupTemplate: popupTemp13
       });
 
 
@@ -2741,11 +2826,13 @@
           width: 1
         }
       };
+const popupTemp14 = new PopupTemplate({ title: "Thời tiết tại Quận 10, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>31°C</td></tr><tr><th>Độ ẩm</th><td>79%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>11 km/h</td></tr><tr><th>Lượng mưa</th><td>1mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>30°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>29°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 14
       const polygonGraphic14 = new Graphic({
         geometry: polygon14,
-        symbol: fillSymbol14
+        symbol: fillSymbol14,
+		popupTemplate: popupTemp14
       });
 
 
@@ -2798,11 +2885,13 @@
           width: 1
         }
       };
+const popupTemp15 = new PopupTemplate({ title: "Thời tiết tại Quận 4, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>31°C</td></tr><tr><th>Độ ẩm</th><td>77%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>12 km/h</td></tr><tr><th>Lượng mưa</th><td>1mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>30°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>29°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 15
       const polygonGraphic15 = new Graphic({
         geometry: polygon15,
-        symbol: fillSymbol15
+        symbol: fillSymbol15,
+		popupTemplate: popupTemp15
       });
 
 
@@ -2866,11 +2955,13 @@
           width: 1
         }
       };
+const popupTemp16 = new PopupTemplate({ title: "Thời tiết tại Quận 3, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>31°C</td></tr><tr><th>Độ ẩm</th><td>76%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>12 km/h</td></tr><tr><th>Lượng mưa</th><td>1mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>30°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>29°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 16
       const polygonGraphic16 = new Graphic({
         geometry: polygon16,
-        symbol: fillSymbol16
+        symbol: fillSymbol16,
+		popupTemplate: popupTemp16
       });
 
 
@@ -2958,11 +3049,13 @@
           width: 1
         }
       };
+const popupTemp17 = new PopupTemplate({ title: "Thời tiết tại Quận 1, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>32°C</td></tr><tr><th>Độ ẩm</th><td>76%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>13 km/h</td></tr><tr><th>Lượng mưa</th><td>0mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>31°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>30°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>33°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 17
       const polygonGraphic17 = new Graphic({
         geometry: polygon17,
-        symbol: fillSymbol17
+        symbol: fillSymbol17,
+		popupTemplate: popupTemp17
       });
 
 
@@ -3138,11 +3231,13 @@
           width: 1
         }
       };
+const popupTemp18 = new PopupTemplate({ title: "Thời tiết tại Quận 7, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>31°C</td></tr><tr><th>Độ ẩm</th><td>78%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>12 km/h</td></tr><tr><th>Lượng mưa</th><td>1mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>30°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>29°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 18
       const polygonGraphic18 = new Graphic({
         geometry: polygon18,
-        symbol: fillSymbol18
+        symbol: fillSymbol18,
+		popupTemplate: popupTemp18
       });
 
 
@@ -3347,11 +3442,13 @@
           width: 1
         }
       };
+const popupTemp19 = new PopupTemplate({ title: "Thời tiết tại Quận 2, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>31°C</td></tr><tr><th>Độ ẩm</th><td>77%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>12 km/h</td></tr><tr><th>Lượng mưa</th><td>1mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>30°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>28°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 19
       const polygonGraphic19 = new Graphic({
         geometry: polygon19,
-        symbol: fillSymbol19
+        symbol: fillSymbol19,
+		popupTemplate: popupTemp19
       });
 
 
@@ -3575,11 +3672,13 @@
           width: 1
         }
       };
+const popupTemp20 = new PopupTemplate({ title: "Thời tiết tại Quận 9, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>31°C</td></tr><tr><th>Độ ẩm</th><td>79%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>12 km/h</td></tr><tr><th>Lượng mưa</th><td>2mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>30°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>29°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 20
       const polygonGraphic20 = new Graphic({
         geometry: polygon20,
-        symbol: fillSymbol20
+        symbol: fillSymbol20,
+		popupTemplate: popupTemp20
       });
 
 
@@ -3867,11 +3966,13 @@
           width: 1
         }
       };
+const popupTemp21 = new PopupTemplate({ title: "Thời tiết tại Quận Thủ Đức, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>29°C</td></tr><tr><th>Độ ẩm</th><td>77%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>11 km/h</td></tr><tr><th>Lượng mưa</th><td>0mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>29°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>28°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>27°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>30°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>29°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 21
       const polygonGraphic21 = new Graphic({
         geometry: polygon21,
-        symbol: fillSymbol21
+        symbol: fillSymbol21,
+		popupTemplate: popupTemp21
       });
 
 
@@ -4055,11 +4156,13 @@
           width: 1
         }
       };
+const popupTemp22 = new PopupTemplate({ title: "Thời tiết tại Quận Bình Thạnh, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>31°C</td></tr><tr><th>Độ ẩm</th><td>76%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>12 km/h</td></tr><tr><th>Lượng mưa</th><td>1mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>30°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>29°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 22
       const polygonGraphic22 = new Graphic({
         geometry: polygon22,
-        symbol: fillSymbol22
+        symbol: fillSymbol22,
+		popupTemplate: popupTemp22
       });
 
 
@@ -4440,11 +4543,13 @@
           width: 1
         }
       };
+const popupTemp23 = new PopupTemplate({ title: "Thời tiết tại Quận Nhà Bè, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>29°C</td></tr><tr><th>Độ ẩm</th><td>83%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>12 km/h</td></tr><tr><th>Lượng mưa</th><td>1mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>29°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>28°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>27°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>30°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>28°C, Mưa</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 23
       const polygonGraphic23 = new Graphic({
         geometry: polygon23,
-        symbol: fillSymbol23
+        symbol: fillSymbol23,
+		popupTemplate: popupTemp23
       });
 
 
@@ -4868,23 +4973,27 @@
           width: 1
         }
       };
+const popupTemp24 = new PopupTemplate({ title: "Thời tiết tại Huyện Cần Giờ, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>29°C</td></tr><tr><th>Độ ẩm</th><td>85%</td></tr><tr><th>Hướng gió</th><td>Đông</td></tr><tr><th>Tốc độ gió</th><td>10 km/h</td></tr><tr><th>Lượng mưa</th><td>5mm</td></tr><tr><th>Tình trạng</th><td>Mưa nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>29°C, Mưa nhẹ</span></div><div class='forecast-item'><span>17:00</span><span>28°C, Mưa</span></div><div class='forecast-item'><span>20:00</span><span>27°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>30°C, Mưa</span></div><div class='forecast-item'><span>Ngày mốt</span><span>29°C, Mưa rào</span></div></div></div>" });
 
       // Tạo graphic cho polygon thứ 24
       const polygonGraphic24 = new Graphic({
         geometry: polygon24,
-        symbol: fillSymbol24
+        symbol: fillSymbol24,
+		popupTemplate: popupTemp24
       });
 
 
 
       // Add the graphics to the view's graphics layer
       // view.graphics.add(polygonGraphic); -->
-      view.graphics.addMany([polygonGraphic1, polygonGraphic2, polygonGraphic3, polygonGraphic4,
+      view.graphics.addMany([
+		polygonGraphic1, polygonGraphic2, polygonGraphic3, polygonGraphic4,
         polygonGraphic5, polygonGraphic6, polygonGraphic7, polygonGraphic8,
         polygonGraphic9, polygonGraphic10, polygonGraphic11, polygonGraphic12,
         polygonGraphic13, polygonGraphic14, polygonGraphic15, polygonGraphic16,
         polygonGraphic17, polygonGraphic18, polygonGraphic19, polygonGraphic20,
-        polygonGraphic21, polygonGraphic22, polygonGraphic23, polygonGraphic24]);
+        polygonGraphic21, polygonGraphic22, polygonGraphic23, polygonGraphic24
+		]);
 
     });
   </script>
