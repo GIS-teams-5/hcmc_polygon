@@ -1,1 +1,33 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Chạy khi có push vào nhánh main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Chạy trên Ubuntu
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Cài đặt và build project (thêm bước này nếu bạn cần build trang web)
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: npm install
+      - name: Build project
+        run: npm run build
+
+      # Deploy trang lên GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages  # Deploy vào nhánh gh-pages
+          folder: build  # Thư mục chứa build (thường là "build" hoặc "dist")
+          token: ${{ secrets.GITHUB_TOKEN }}
 
