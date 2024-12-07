@@ -30,9 +30,8 @@
         "esri/Map",
         "esri/views/MapView",
         "esri/Graphic",
-        "esri/layers/GraphicsLayer",
         "esri/geometry/Point",
-      ], (Map, MapView, Graphic, GraphicsLayer, Point) => {
+      ], (Map, MapView, Graphic, Point) => {
         const map = new Map({
           basemap: "topo-vector",
         });
@@ -43,13 +42,6 @@
           map: map,
           zoom: 10,
         });
-
-        /***************************
-         * Hân - Create 3 public points
-         ***************************/
-        const publicPointGraphicLayer = new GraphicsLayer();
-        map.add(publicPointGraphicLayer);
-        publicPointGraphicLayer.addMany(createThreePublicPoint(Point, Graphic));
 
         /***************************
          * Create a polygon graphic
@@ -1697,6 +1689,11 @@
           polygonGraphic23,
           polygonGraphic24,
         ]);
+
+        /***************************
+         * Hân - Create 3 public points
+         ***************************/
+        view.graphics.addMany(createThreePublicPoint(Point, Graphic));
       });
     </script>
   </head>
