@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Chạy trên Ubuntu
+    runs-on: [self-hosted, ubuntu]  # Chạy trên Ubuntu
 
     steps:
       - name: Checkout repository
