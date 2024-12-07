@@ -34,5 +34,5 @@ jobs:
         with:
           branch: gh-pages  # Đảm bảo bạn deploy vào nhánh gh-pages
           folder: build  # Thư mục chứa build sản phẩm, thay đổi nếu cần
-          token: ${{ secrets.GITHUB_TOKEN }}  # Token để deploy
+          token: ${{ secrets.GITHUB_TOKEN }}  # Token để deploy CI/CD
 
