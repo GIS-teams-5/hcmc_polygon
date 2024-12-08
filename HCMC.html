@@ -2099,12 +2099,44 @@
             width: 1
           }
         };
+        const quan12districtData = [
+          {
+            name: "Quận 12",
+            area: "52.74 km²",
+            location: "Phía Bắc Thành phố",
+            units: "11 phường"
+          }
+        ];
 
         // Tạo graphic cho polygon thứ 9
         const polygonGraphic9 = new Graphic({
           geometry: polygon9,
           symbol: fillSymbol9
+        attributes: {
+            name: "Quận 12",
+            area: "52.74 km²",
+            location: "Phía Bắc Thành phố",
+            units: "11 phường",
+            temperature: "30°C",
+            rainfall: "2.5 mm",
+            wind: "12 km/h"
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
         });
+        view.graphics.add(polygonGraphic9);
 
 
 
@@ -2351,6 +2383,8 @@
           ]
         };
 
+
+
         // Symbol cho polygon thứ 10 (màu đỏ sẫm)
         const fillSymbol10 = {
           type: "simple-fill",
@@ -2360,13 +2394,44 @@
             width: 1
           }
         };
+        const huyenHocMondistrictData = [
+          {
+            name: "Huyện Hóc Môn",
+            area: "109.17 km²",
+            location: "Phía Tây Bắc Thành phố",
+            units: "11 xã và 1 thị trấn"
+          }
+        ];
 
         // Tạo graphic cho polygon thứ 10
         const polygonGraphic10 = new Graphic({
           geometry: polygon10,
           symbol: fillSymbol10
+        attributes: {
+            name: "Huyện Hóc Môn",
+            area: "109.17 km²",
+            location: "Phía Tây Bắc Thành phố",
+            units: "11 xã và 1 thị trấn",
+            temperature: "30°C",
+            rainfall: "2.5 mm",
+            wind: "12 km/h"
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
         });
-
+        view.graphics.add(polygonGraphic10);
 
 
         // Polygon thứ 11 (Quận Củ Chi)
@@ -2825,14 +2890,45 @@
             width: 1
           }
         };
+        const huyenCuChidistrictData = [
+          {
+            name: "Huyện Củ Chi",
+            area: "434.77 km²",
+            location: "Phía Tây Bắc Thành phố",
+            units: "20 xã và 1 thị trấn"
+          }
+        ];
+
 
         // Tạo graphic cho polygon thứ 11
         const polygonGraphic11 = new Graphic({
           geometry: polygon11,
           symbol: fillSymbol11
+        attributes: {
+            name: "Huyện Củ Chi",
+            area: "434.77 km²",
+            location: "Phía Tây Bắc Thành phố",
+            units: "20 xã và 1 thị trấn",
+            temperature: "30°C",
+            rainfall: "2.5 mm",
+            wind: "12 km/h"
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
         });
-
-
+        view.graphics.add(polygonGraphic11);
 
 
         // Polygon thứ 12 (Quận Phú Nhuận)
@@ -2919,13 +3015,45 @@
             width: 1
           }
         };
+        const quanPhuNhuandistrictData = [
+          {
+            name: "Quận Phú Nhuận",
+            area: "4.86 km²",
+            location: "Phía Tây Bắc Thành phố",
+            units: "13 phường"
+          }
+        ];
+
 
         // Tạo graphic cho polygon thứ 12
         const polygonGraphic12 = new Graphic({
           geometry: polygon12,
           symbol: fillSymbol12
+        attributes: {
+            name: "Quận Phú Nhuận",
+            area: "4.86 km²",
+            location: "Phía Tây Bắc Thành phố",
+            units: "13 phường",
+            temperature: "30°C",
+            rainfall: "2.5 mm",
+            wind: "12 km/h"
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
         });
-
+        view.graphics.add(polygonGraphic12);
 
 
         // Polygon thứ 13 (Quận 5)
@@ -2996,13 +3124,45 @@
             width: 1
           }
         };
+        const quan5districtData = [
+          {
+            name: "Quận 5",
+            area: "4.27 km²",
+            location: "Phía Nam Thành phố",
+            units: "10 phường"
+          }
+        ];
+
 
         // Tạo graphic cho polygon thứ 13
         const polygonGraphic13 = new Graphic({
           geometry: polygon13,
           symbol: fillSymbol13
+        attributes: {
+            name: "Quận 5",
+            area: "4.27 km²",
+            location: "Phía Nam Thành phố",
+            units: "10 phường",
+            temperature: "30°C",
+            rainfall: "2.5 mm",
+            wind: "12 km/h"
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
         });
-
+        view.graphics.add(polygonGraphic13);
 
         // Polygon thứ 14 (Quận 10)
         const polygon14 = {
@@ -3056,13 +3216,45 @@
             width: 1
           }
         };
+        const quan10districtData = [
+          {
+            name: "Quận 10",
+            area: "5.72 km²",
+            location: "Phía Tây Nam Thành phố",
+            units: "15 phường"
+          }
+        ];
+
 
         // Tạo graphic cho polygon thứ 14
         const polygonGraphic14 = new Graphic({
           geometry: polygon14,
           symbol: fillSymbol14
+        attributes: {
+            name: "Quận 10",
+            area: "5.72 km²",
+            location: "Phía Tây Nam Thành phố",
+            units: "15 phường",
+            temperature: "30°C",
+            rainfall: "2.5 mm",
+            wind: "12 km/h"
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
         });
-
+        view.graphics.add(polygonGraphic14);
 
 
         // Polygon thứ 15 (Quận 4)
@@ -3113,12 +3305,45 @@
             width: 1
           }
         };
+        const quan4districtData = [
+          {
+            name: "Quận 4",
+            area: "4.18 km²",
+            location: "Phía Nam Thành phố",
+            units: "13 phường"
+          }
+        ];
+
 
         // Tạo graphic cho polygon thứ 15
         const polygonGraphic15 = new Graphic({
           geometry: polygon15,
           symbol: fillSymbol15
+        attributes: {
+            name: "Quận 4",
+            area: "4.18 km²",
+            location: "Phía Nam Thành phố",
+            units: "13 phường",
+            temperature: "30°C",
+            rainfall: "2.5 mm",
+            wind: "12 km/h"
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
         });
+        view.graphics.add(polygonGraphic15);
 
 
         // Polygon thứ 16 (Quận 3)
@@ -3181,12 +3406,45 @@
             width: 1
           }
         };
+        const quan3districtData = [
+          {
+            name: "Quận 3",
+            area: "4.92 km²",
+            location: "Trung tâm Thành phố",
+            units: "10 phường"
+          }
+        ];
+
 
         // Tạo graphic cho polygon thứ 16
         const polygonGraphic16 = new Graphic({
           geometry: polygon16,
           symbol: fillSymbol16
+        attributes: {
+            name: "Quận 3",
+            area: "4.92 km²",
+            location: "Trung tâm Thành phố",
+            units: "10 phường",
+            temperature: "30°C",
+            rainfall: "2.5 mm",
+            wind: "12 km/h"
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
         });
+        view.graphics.add(polygonGraphic16);
 
 
         // Polygon thứ 17 (Quận 1)
