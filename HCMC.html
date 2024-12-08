@@ -7,7 +7,6 @@
 
   <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css" />
   <script src="https://js.arcgis.com/4.26/"></script>
-  <script src="PublicPoints.js"></script>
 
   <style>
     html,
@@ -21,12 +20,7 @@
   </style>
 
   <script>
-    require([
-              "esri/Map", 
-              "esri/views/MapView", 
-              "esri/Graphic", 
-              "esri/geometry/Point",
-              "esri/symbols/PictureMarkerSymbol"], (Map, MapView, Graphic, PictureMarkerSymbol, Point) => {
+    require(["esri/Map", "esri/views/MapView", "esri/Graphic"], (Map, MapView, Graphic) => {
       const map = new Map({
         basemap: "topo-vector"
       });
@@ -37,90 +31,6 @@
         map: map,
         zoom: 10
       });
-
-      /***************************
-      * NHẬT - THÊM 3 ĐIỂM
-      ***************************/
-
-      /*** Thêm điểm 1: Quán ăn DƯƠNG THÀNH ****/
-      const point = {
-        type: "point",
-        longitude: 106.6454659,
-        latitude: 10.7580735
-      };
-      // Tạo biểu tượng cho marker sử dụng hình ảnh
-      const symbol = new PictureMarkerSymbol({
-        url: "https://png.pngtree.com/png-clipart/20221221/original/pngtree-online-store-website-png-image_8790103.png",
-        width: "30px",
-        height: "30px"
-      });
-      // Tạo template cho popup với thông tin chi tiết
-      const popupTemplate = {
-        title: "{name}",
-        content: `
-                <b>Địa chỉ:</b> 68 Phan Xích Long, Phường 16, Quận 11, Hồ Chí Minh, Việt Nam<br>
-                <b>Giờ mở cửa:</b> 8:00 AM - 10:00 PM
-                <img src="https://lh5.googleusercontent.com/p/AF1QipOawrXAiARIPUtDTIlbtJXY9irutc5kUd2fU8qn=w408-h306-k-no" alt="Hình ảnh Quán ăn DƯƠNG THÀNH" style="max-width: 100%; height: auto;">
-              `
-      };
-      // Tạo graphic cho điểm Quán ăn DƯƠNG THÀNH
-      const pointGraphic = new Graphic({
-        geometry: point,
-        symbol: symbol,
-        attributes: { name: "Quán ăn DƯƠNG THÀNH" },
-        popupTemplate: popupTemplate
-      });
-      /******Thêm điểm 2***********/
-      const point2 = {
-        type: "point",
-        longitude: 106.640681,
-        latitude: 10.7570948
-      };
-      const symbol2 = new PictureMarkerSymbol({
-        url: "https://img.lovepik.com/original_origin_pic/18/05/02/ae18ae0b2aac0387be564828deb190e8.png_wh860.png",
-        width: "30px",
-        height: "30px"
-      });
-      const popupTemplate2 = {
-        title: "BIYOKI Family & Kids Coffee",
-        content: `
-            <b>Địa chỉ:</b> 304 Đ. Minh Phụng, Phường 2, Quận 11, Hồ Chí Minh, Việt Nam<br>
-            <b>Giờ mở cửa:</b> 7:30 AM - 10:00 PM
-            <img src="https://lh5.googleusercontent.com/p/AF1QipN8faeMHdrbAuf3GgvnT2XnGVXBC7tvghffoxZA=w427-h240-k-no" alt="BIYOKI Family & Kids Coffee" style="max-width: 100%; height: auto;">
-          `
-      };
-      const graphic2 = new Graphic({
-        geometry: point2,
-        symbol: symbol2,
-        popupTemplate: popupTemplate2
-      });
-      /******Thêm điểm 3***********/
-      const point3 = {
-        type: "point",
-        longitude: 106.640646,
-        latitude: 10.7676586
-      };
-      const symbol3 = new PictureMarkerSymbol({
-        url: "https://png.pngtree.com/png-clipart/20190516/original/pngtree-supermarket-supermarket-cartoon-simple-cartoon-simple-png-image_3854973.jpg",
-        width: "24px",
-        height: "24px"
-      });
-      const popupTemplate3 = {
-        title: "Siêu thị Bách hóa XANH 59 Bình Thới",
-        content: `
-            <b>Địa chỉ:</b> 59 Bình Thới, Phường 11, Quận 11, Hồ Chí Minh 700000, Việt Nam<br>
-            <b>Giờ mở cửa:</b> 7:30 AM - 12:00 PM
-            <img src="https://lh5.googleusercontent.com/p/AF1QipPzw_f4eXyd2tcQIBv1Iez1XjbH4sul56wmE3kB=w408-h306-k-no" alt="Siêu thị Bách hóa XANH 59 Bình Thới" style="max-width: 100%; height: auto;">
-          `
-      };
-      const graphic3 = new Graphic({
-        geometry: point3,
-        symbol: symbol3,
-        popupTemplate: popupTemplate3
-      });
-      // Thêm graphic vào view
-      view.graphics.addMany([pointGraphic, graphic2, graphic3]);
-
 
 
       /***************************
@@ -707,12 +617,45 @@
           width: 1
         }
       };
+      const binhChanhdistrictData = [
+    {
+        name: "Quận Bình Chánh",
+        area: "252.7 km²",
+        location: "Phía Tây Nam Thành phố",
+        units: "16 xã và thị trấn"
+    }
+];
+const polygonGraphic1 = new Graphic({
+  geometry: polygon1,
+  symbol: fillSymbol1,
+  attributes: {
+      name: "Quận Bình Chánh",
+      area: "252.7 km²",
+      location: "Phía Tây Nam Thành phố",
+      units: "16 xã và thị trấn",
+      temperature: "30°C",
+      rainfall: "2.5 mm",
+      wind: "12 km/h"
+  },
+  popupTemplate: {
+      title: "{name}",
+      content: [{
+          type: "fields",
+          fieldInfos: [
+              { fieldName: "area", label: "Diện tích" },
+              { fieldName: "location", label: "Vị trí" },
+              { fieldName: "units", label: "Đơn vị hành chính" },
+              { fieldName: "temperature", label: "Nhiệt độ" },
+              { fieldName: "rainfall", label: "Lượng mưa" },
+              { fieldName: "wind", label: "Tốc độ gió" }
+          ]
+      }]
+  }
+});
 
-      // Add the geometry and symbol to a new graphic
-      const polygonGraphic1 = new Graphic({
-        geometry: polygon1,
-        symbol: fillSymbol1
-      });
+view.graphics.add(polygonGraphic1);
+
+
 
 
 
@@ -780,7 +723,6 @@
         ]
       };
 
-      // Symbol cho polygon thứ 2 (màu xanh dương)
       const fillSymbol2 = {
         type: "simple-fill",
         color: [0, 0, 255, 0.5], // Màu xanh dương
@@ -789,16 +731,42 @@
           width: 1
         }
       };
+      const district11Data = {
+        name: "Quận 11",
+        area: "5.14 km²",
+        location: "Tây Bắc Thành phố",
+        units: "16 phường"
+    };
+    const polygonGraphic2 = new Graphic({
+      geometry: polygon2,
+      symbol: fillSymbol2,
+      attributes: {
+          ...district11Data,
+          temperature: "31°C",
+          rainfall: "2.1 mm",
+          wind: "15 km/h"
+      },
+      popupTemplate: {
+          title: "{name}",
+          content: [{
+              type: "fields",
+              fieldInfos: [
+                  { fieldName: "area", label: "Diện tích" },
+                  { fieldName: "location", label: "Vị trí" },
+                  { fieldName: "units", label: "Đơn vị hành chính" },
+                  { fieldName: "temperature", label: "Nhiệt độ" },
+                  { fieldName: "rainfall", label: "Lượng mưa" },
+                  { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+          }]
+      }
+  });
 
       // Tạo graphic cho polygon thứ 2
-      const polygonGraphic2 = new Graphic({
-        geometry: polygon2,
-        symbol: fillSymbol2
-      });
+      view.graphics.add(polygonGraphic2);
 
 
-
-
+      
       // Polygon thứ 3 (Quận Bình Tân)
       const polygon3 = {
         type: "polygon",
@@ -963,15 +931,41 @@
           width: 1
         }
       };
+      const binhTandistrictData = {
+        name: "Quận Bình Tân",
+        area: "52,02 km²",
+        location: "phía Tây thành phố ",
+        units: "10 phường"
+    };
+    const polygonGraphic3 = new Graphic({
+      geometry: polygon3,
+      symbol: fillSymbol3,
+      attributes: {
+          ...binhTandistrictData,
+          temperature: "31°C",
+          rainfall: "2.1 mm",
+          wind: "3.08 km/h"
+      },
+      popupTemplate: {
+          title: "{name}",
+          content: [{
+              type: "fields",
+              fieldInfos: [
+                  { fieldName: "area", label: "Diện tích" },
+                  { fieldName: "location", label: "Vị trí" },
+                  { fieldName: "units", label: "Đơn vị hành chính" },
+                  { fieldName: "temperature", label: "Nhiệt độ" },
+                  { fieldName: "rainfall", label: "Lượng mưa" },
+                  { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+          }]
+      }
+  });
 
-      // Tạo graphic cho polygon thứ 2
-      const polygonGraphic3 = new Graphic({
-        geometry: polygon3,
-        symbol: fillSymbol3
-      });
+      // Tạo graphic cho polygon thứ 3
+      view.graphics.add(polygonGraphic3);
 
-
-
+      
 
 
       // Polygon thứ 4 (Quận 6)
@@ -1055,11 +1049,39 @@
         }
       };
 
+      const district6Data = {
+        name: "Quận 6",
+        area: "7.19 km²",
+        location: "Tây Nam Thành phố ",
+        units: "14 phường"
+    };
+    const polygonGraphic4 = new Graphic({
+      geometry: polygon4,
+      symbol: fillSymbol4,
+      attributes: {
+          ...district6Data,
+          temperature: "31°C",
+          rainfall: "2.3 mm",
+          wind: "14 km/h"
+      },
+      popupTemplate: {
+          title: "{name}",
+          content: [{
+              type: "fields",
+              fieldInfos: [
+                  { fieldName: "area", label: "Diện tích" },
+                  { fieldName: "location", label: "Vị trí" },
+                  { fieldName: "units", label: "Đơn vị hành chính" },
+                  { fieldName: "temperature", label: "Nhiệt độ" },
+                  { fieldName: "rainfall", label: "Lượng mưa" },
+                  { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+          }]
+      }
+  });
+
       // Tạo graphic cho polygon thứ 4
-      const polygonGraphic4 = new Graphic({
-        geometry: polygon4,
-        symbol: fillSymbol4
-      });
+      view.graphics.add(polygonGraphic4);
 
 
 
@@ -1217,11 +1239,40 @@
         }
       };
 
+      const district8Data = {
+        name: "Quận 8",
+        area: "19.18 km²",
+        location: "Nam Thành phố ",
+        units: "16 phường"
+    };
+    const polygonGraphic5 = new Graphic({
+      geometry: polygon5,
+      symbol: fillSymbol5,
+      attributes: {
+          ...district8Data,
+          temperature: "32°C",
+          rainfall: "1.8 mm",
+          wind: "16 km/h"
+      },
+      popupTemplate: {
+          title: "{name}",
+          content: [{
+              type: "fields",
+              fieldInfos: [
+                  { fieldName: "area", label: "Diện tích" },
+                  { fieldName: "location", label: "Vị trí" },
+                  { fieldName: "units", label: "Đơn vị hành chính" },
+                  { fieldName: "temperature", label: "Nhiệt độ" },
+                  { fieldName: "rainfall", label: "Lượng mưa" },
+                  { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+          }]
+      }
+  });
+
       // Tạo graphic cho polygon thứ 5
-      const polygonGraphic5 = new Graphic({
-        geometry: polygon5,
-        symbol: fillSymbol5
-      });
+      view.graphics.add(polygonGraphic5);
+
 
 
 
@@ -1398,11 +1449,39 @@
         }
       };
 
+      const goVapdistrictData = {
+        name: "Quận Gò Vấp",
+        area: "19.74 km²",
+        location: "Bắc Thành phố ",
+        units: "17 phường"
+    };
+    const polygonGraphic6 = new Graphic({
+      geometry: polygon6,
+      symbol: fillSymbol6,
+      attributes: {
+          ...goVapdistrictData,
+          temperature: "30°C",
+          rainfall: "2.5 mm",
+          wind: "13 km/h"
+      },
+      popupTemplate: {
+          title: "{name}",
+          content: [{
+              type: "fields",
+              fieldInfos: [
+                  { fieldName: "area", label: "Diện tích" },
+                  { fieldName: "location", label: "Vị trí" },
+                  { fieldName: "units", label: "Đơn vị hành chính" },
+                  { fieldName: "temperature", label: "Nhiệt độ" },
+                  { fieldName: "rainfall", label: "Lượng mưa" },
+                  { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+          }]
+      }
+  });
+
       // Tạo graphic cho polygon thứ 6
-      const polygonGraphic6 = new Graphic({
-        geometry: polygon6,
-        symbol: fillSymbol6
-      });
+      view.graphics.add(polygonGraphic6);
 
 
 
@@ -1492,11 +1571,39 @@
         }
       };
 
+      const tanPhudistrictData = {
+        name: "Quận Tân Phú",
+        area: "16.06 km²",
+        location: "Tây Bắc Thành phố ",
+        units: "11 phường"
+    };
+    const polygonGraphic7 = new Graphic({
+      geometry: polygon7,
+      symbol: fillSymbol7,
+      attributes: {
+          ...tanPhudistrictData,
+          temperature: "31°C",
+          rainfall: "2.0 mm",
+          wind: "15 km/h"
+      },
+      popupTemplate: {
+          title: "{name}",
+          content: [{
+              type: "fields",
+              fieldInfos: [
+                  { fieldName: "area", label: "Diện tích" },
+                  { fieldName: "location", label: "Vị trí" },
+                  { fieldName: "units", label: "Đơn vị hành chính" },
+                  { fieldName: "temperature", label: "Nhiệt độ" },
+                  { fieldName: "rainfall", label: "Lượng mưa" },
+                  { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+          }]
+      }
+  });
+
       // Tạo graphic cho polygon thứ 7
-      const polygonGraphic7 = new Graphic({
-        geometry: polygon7,
-        symbol: fillSymbol7
-      });
+      view.graphics.add(polygonGraphic7);
 
 
 
@@ -1613,12 +1720,39 @@
         }
       };
 
-      // Tạo graphic cho polygon thứ 8
-      const polygonGraphic8 = new Graphic({
-        geometry: polygon8,
-        symbol: fillSymbol8
-      });
+      const tanBinhdistrictData = {
+        name: "Quận Tân Bình",
+        area: "22.38.06 km²",
+        location: "Tây Bắc Thành phố ",
+        units: "15 phường"
+    };
+    const polygonGraphic8 = new Graphic({
+      geometry: polygon8,
+      symbol: fillSymbol8,
+      attributes: {
+          ...tanBinhdistrictData,
+          temperature: "30°C",
+          rainfall: "2.2 mm",
+          wind: "14 km/h"
+      },
+      popupTemplate: {
+          title: "{name}",
+          content: [{
+              type: "fields",
+              fieldInfos: [
+                  { fieldName: "area", label: "Diện tích" },
+                  { fieldName: "location", label: "Vị trí" },
+                  { fieldName: "units", label: "Đơn vị hành chính" },
+                  { fieldName: "temperature", label: "Nhiệt độ" },
+                  { fieldName: "rainfall", label: "Lượng mưa" },
+                  { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+          }]
+      }
+  });
 
+      // Tạo graphic cho polygon thứ 8
+      view.graphics.add(polygonGraphic8);
 
 
 
@@ -4975,194 +5109,6 @@
         polygonGraphic13, polygonGraphic14, polygonGraphic15, polygonGraphic16,
         polygonGraphic17, polygonGraphic18, polygonGraphic19, polygonGraphic20,
         polygonGraphic21, polygonGraphic22, polygonGraphic23, polygonGraphic24]);
-
-
-      /***************************
-         * Hân - Create 3 public points
-       ***************************/
-      view.graphics.addMany(createThreePublicPoint(Point, Graphic));
-
-
-
-      /***************************
-                * Hưng - Tạo 3 đường
-      ***************************/
-      const leDucThoLine = {
-        type: "polyline",
-        paths: [
-          [106.6499236887049, 10.86087875317891],
-          [106.6559359858293, 10.85486549579628],
-          [106.6605947994305, 10.85240948403359],
-          [106.6710172501298, 10.84620020780185],
-          [106.6729742770862, 10.84443545160643],
-          [106.6735297989455, 10.84426092853794],
-          [106.6746646681147, 10.84313072079117],
-          [106.6766665879222, 10.84193099130381],
-        ],
-      };
-
-      const leVanThoSymbol = {
-        type: "simple-line",
-        color: [255, 0, 0],
-        width: 4,
-      };
-
-      const leVanThoGraphic = new Graphic({
-        geometry: leDucThoLine,
-        symbol: leVanThoSymbol,
-        attributes: {
-          name: "Lê Đức Thọ",
-          length: "2.1 km",
-          type: "Đường lớn",
-        },
-        popupTemplate: {
-          title: "{name}",
-          content: "Chiều dài: {length}<br>Loại đường: {type}",
-        },
-      });
-
-      const nguyenVanKhoiLine = {
-        type: "polyline",
-        paths: [
-          [106.6442271853811, 10.84621369283317],
-          [106.6483067820663, 10.84367206034111],
-          [106.6511560556236, 10.84342682633645],
-          [106.6536297850576, 10.84269151515882],
-          [106.6571901645615, 10.84260881451816],
-          [106.6625405064812, 10.84144456776507],
-        ],
-      };
-
-      const nguyenVanKhoiSymbol = {
-        type: "simple-line",
-        color: [0, 255, 0],
-        width: 4,
-      };
-
-      const nguyenVanKhoiGraphic = new Graphic({
-        geometry: nguyenVanKhoiLine,
-        symbol: nguyenVanKhoiSymbol,
-        attributes: {
-          name: "Nguyễn Văn Khối",
-          length: "1.8 km",
-          type: "Đường chính",
-        },
-        popupTemplate: {
-          title: "{name}",
-          content: "Chiều dài: {length}<br>Loại đường: {type}",
-        },
-      });
-
-      const phamVanChieuLine = {
-        type: "polyline",
-        paths: [
-          [106.6402622482078, 10.84429092331018],
-          [106.6450678797575, 10.84666408197014],
-          [106.6494999917607, 10.84880203874991],
-          [106.6560044303713, 10.85148033053073],
-          [106.6575970667249, 10.85139304520499],
-          [106.6655190731597, 10.85409857498733],
-        ],
-      };
-
-      const phamVanChieuSymbol = {
-        type: "simple-line",
-        color: [0, 0, 255],
-        width: 4,
-      };
-
-      const phamVanChieuGraphic = new Graphic({
-        geometry: phamVanChieuLine,
-        symbol: phamVanChieuSymbol,
-        attributes: {
-          name: "Phạm Văn Chiêu",
-          length: "2.5 km",
-          type: "Đường khu vực",
-        },
-        popupTemplate: {
-          title: "{name}",
-          content: "Chiều dài: {length}<br>Loại đường: {type}",
-        },
-      });
-
-      const leVanThoText = {
-        type: "point",
-        longitude: 106.665,
-        latitude: 10.849,
-      };
-
-      const leVanThoTextSymbol = {
-        type: "text",
-        color: [255, 0, 0],
-        text: "Lê Đức Thọ",
-        haloColor: "white",
-        haloSize: "1px",
-        font: {
-          size: 12,
-          weight: "bold",
-        },
-      };
-
-      const leVanThoTextGraphic = new Graphic({
-        geometry: leVanThoText,
-        symbol: leVanThoTextSymbol,
-      });
-
-      const nguyenVanKhoiText = {
-        type: "point",
-        longitude: 106.652,
-        latitude: 10.8441,
-      };
-
-      const nguyenVanKhoiTextSymbol = {
-        type: "text",
-        color: [0, 255, 0],
-        text: "Nguyễn Văn Khối",
-        haloColor: "white",
-        haloSize: "1px",
-        font: {
-          size: 12,
-          weight: "bold",
-        },
-      };
-
-      const nguyenVanKhoiTextGraphic = new Graphic({
-        geometry: nguyenVanKhoiText,
-        symbol: nguyenVanKhoiTextSymbol,
-      });
-
-      const phamVanChieuText = {
-        type: "point",
-        longitude: 106.647,
-        latitude: 10.849,
-      };
-
-      const phamVanChieuTextSymbol = {
-        type: "text",
-        color: [0, 0, 255],
-        text: "Phạm Văn Chiêu",
-        haloColor: "white",
-        haloSize: "1px",
-        font: {
-          size: 12,
-          weight: "bold",
-        },
-      };
-
-      const phamVanChieuTextGraphic = new Graphic({
-        geometry: phamVanChieuText,
-        symbol: phamVanChieuTextSymbol,
-      });
-
-      view.graphics.addMany([
-        leVanThoGraphic,
-        nguyenVanKhoiGraphic,
-        phamVanChieuGraphic,
-        leVanThoTextGraphic,
-        nguyenVanKhoiTextGraphic,
-        phamVanChieuTextGraphic,
-      ]);
-
 
     });
   </script>
