@@ -710,7 +710,7 @@
         };
         const binhChanhdistrictData = [
           {
-            name: "Quận Bình Chánh",
+            name: "Huyện Bình Chánh",
             area: "252.7 km²",
             location: "Phía Tây Nam Thành phố",
             units: "16 xã và thị trấn"
@@ -720,7 +720,7 @@
           geometry: polygon1,
           symbol: fillSymbol1,
           attributes: {
-            name: "Quận Bình Chánh",
+            name: "Huyện Bình Chánh",
             area: "252.7 km²",
             location: "Phía Tây Nam Thành phố",
             units: "16 xã và thị trấn",
@@ -2108,9 +2108,43 @@
           }
         ];
 
-        // Tạo graphic cho polygon thứ 9
+
+        const quan12districtData = [
+          {
+            name: "Quận 12",
+            area: "52.74 km²",
+            location: "Phía Bắc Thành phố",
+            units: "11 phường"
+          }
+        ];
         const polygonGraphic9 = new Graphic({
           geometry: polygon9,
+<<<<<<< HEAD
+          symbol: fillSymbol9,
+          attributes: {
+            name: "Quận 12",
+            area: "52.74 km²",
+            location: "Phía Bắc Thành phố",
+            units: "11 phường",
+            temperature: "30°C",
+            rainfall: "2.5 mm",
+            wind: "12 km/h"
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
+=======
           symbol: fillSymbol9,
         attributes: {
             name: "Quận 12",
@@ -2135,7 +2169,11 @@
               ]
             }]
           }
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         });
+        view.graphics.add(polygonGraphic9);
+
+        // Tạo graphic cho polygon thứ 9
         view.graphics.add(polygonGraphic9);
 
 
@@ -2403,9 +2441,45 @@
           }
         ];
 
+
+        const huyenHocMondistrictData = [
+          {
+            name: "Huyện Hóc Môn",
+            area: "109.17 km²",
+            location: "Phía Tây Bắc Thành phố",
+            units: "11 xã và 1 thị trấn"
+          }
+        ];
+
         // Tạo graphic cho polygon thứ 10
         const polygonGraphic10 = new Graphic({
           geometry: polygon10,
+<<<<<<< HEAD
+          symbol: fillSymbol10,
+          attributes: {
+            name: "Huyện Hóc Môn",
+            area: "109.17 km²",
+            location: "Phía Tây Bắc Thành phố",
+            units: "11 xã và 1 thị trấn",
+            temperature: "30°C",
+            rainfall: "2.5 mm",
+            wind: "12 km/h"
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
+=======
           symbol: fillSymbol10,
         attributes: {
             name: "Huyện Hóc Môn",
@@ -2430,10 +2504,21 @@
               ]
             }]
           }
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         });
         view.graphics.add(polygonGraphic10);
 
+        // Tạo graphic cho polygon thứ 10
+        // const polygonGraphic10 = new Graphic({
+        //  geometry: polygon10,
+        //  symbol: fillSymbol10
+        //});
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         // Polygon thứ 11 (Quận Củ Chi)
         const polygon11 = {
           type: "polygon",
@@ -2899,10 +2984,50 @@
           }
         ];
 
+<<<<<<< HEAD
 
+        const huyencuchidistrictData = [
+          {
+            name: "Huyện Củ Chi",
+            area: "434.2 km²",  // Cập nhật diện tích Huyện Củ Chi
+            location: "Khu vực phía Tây Bắc Thành phố Hồ Chí Minh",  // Cập nhật vị trí Huyện Củ Chi
+            units: "21 xã, 1 thị trấn"  // Huyện Củ Chi có 21 xã và 1 thị trấn
+          }
+        ];
+
+=======
+
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         // Tạo graphic cho polygon thứ 11
         const polygonGraphic11 = new Graphic({
           geometry: polygon11,
+<<<<<<< HEAD
+          symbol: fillSymbol11,
+          attributes: {
+            name: "Huyện Củ Chi",  // Cập nhật tên
+            area: "434.2 km²",  // Cập nhật diện tích Huyện Củ Chi
+            location: "Khu vực phía Tây Bắc Thành phố Hồ Chí Minh",  // Cập nhật vị trí
+            units: "21 xã, 1 thị trấn",  // Cập nhật đơn vị hành chính
+            temperature: "30°C",  // Giả sử nhiệt độ
+            rainfall: "2.5 mm",  // Giả sử lượng mưa
+            wind: "12 km/h"  // Giả sử tốc độ gió
+          },
+
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
+=======
           symbol: fillSymbol11,
         attributes: {
             name: "Huyện Củ Chi",
@@ -2927,10 +3052,26 @@
               ]
             }]
           }
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         });
         view.graphics.add(polygonGraphic11);
 
+        view.graphics.add(polygonGraphic11);
 
+<<<<<<< HEAD
+
+
+        // Tạo graphic cho polygon thứ 11
+        /* const polygonGraphic11 = new Graphic({
+          geometry: polygon11,
+          symbol: fillSymbol11
+        }); */
+
+
+
+
+=======
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         // Polygon thứ 12 (Quận Phú Nhuận)
         const polygon12 = {
           type: "polygon",
@@ -3024,10 +3165,49 @@
           }
         ];
 
+<<<<<<< HEAD
+        const quanPhuNhuandistrictData = [
+          {
+            name: "Quận Phú Nhuận",
+            area: "4.86 km²",
+            location: "Phía Tây Bắc Thành phố",
+            units: "13 phường"
+          }
+        ];
 
+
+=======
+
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         // Tạo graphic cho polygon thứ 12
         const polygonGraphic12 = new Graphic({
           geometry: polygon12,
+<<<<<<< HEAD
+          symbol: fillSymbol12,
+          attributes: {
+            name: "Quận Phú Nhuận",
+            area: "4.86 km²",
+            location: "Phía Tây Bắc Thành phố",
+            units: "13 phường",
+            temperature: "30°C",
+            rainfall: "2.5 mm",
+            wind: "12 km/h"
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
+=======
           symbol: fillSymbol12,
         attributes: {
             name: "Quận Phú Nhuận",
@@ -3052,6 +3232,7 @@
               ]
             }]
           }
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         });
         view.graphics.add(polygonGraphic12);
 
@@ -3133,10 +3314,49 @@
           }
         ];
 
+<<<<<<< HEAD
+        const quan5districtData = [
+          {
+            name: "Quận 5",
+            area: "4.27 km²",
+            location: "Phía Nam Thành phố",
+            units: "10 phường"
+          }
+        ];
 
+
+=======
+
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         // Tạo graphic cho polygon thứ 13
         const polygonGraphic13 = new Graphic({
           geometry: polygon13,
+<<<<<<< HEAD
+          symbol: fillSymbol13,
+          attributes: {
+            name: "Quận 5",
+            area: "4.27 km²",
+            location: "Phía Nam Thành phố",
+            units: "10 phường",
+            temperature: "30°C",
+            rainfall: "2.5 mm",
+            wind: "12 km/h"
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
+=======
           symbol: fillSymbol13,
         attributes: {
             name: "Quận 5",
@@ -3161,6 +3381,7 @@
               ]
             }]
           }
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         });
         view.graphics.add(polygonGraphic13);
 
@@ -3225,10 +3446,49 @@
           }
         ];
 
+<<<<<<< HEAD
+        const quan10districtData = [
+          {
+            name: "Quận 10",
+            area: "5.72 km²",
+            location: "Phía Tây Nam Thành phố",
+            units: "15 phường"
+          }
+        ];
 
+
+=======
+
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         // Tạo graphic cho polygon thứ 14
         const polygonGraphic14 = new Graphic({
           geometry: polygon14,
+<<<<<<< HEAD
+          symbol: fillSymbol14,
+          attributes: {
+            name: "Quận 10",
+            area: "5.72 km²",
+            location: "Phía Tây Nam Thành phố",
+            units: "15 phường",
+            temperature: "30°C",
+            rainfall: "2.5 mm",
+            wind: "12 km/h"
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
+=======
           symbol: fillSymbol14,
         attributes: {
             name: "Quận 10",
@@ -3253,10 +3513,17 @@
               ]
             }]
           }
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         });
         view.graphics.add(polygonGraphic14);
 
 
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         // Polygon thứ 15 (Quận 4)
         const polygon15 = {
           type: "polygon",
@@ -3314,10 +3581,50 @@
           }
         ];
 
+<<<<<<< HEAD
 
+        const quan4districtData = [
+          {
+            name: "Quận 4",
+            area: "4.18 km²",
+            location: "Phía Nam Thành phố",
+            units: "13 phường"
+          }
+        ];
+
+
+=======
+
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         // Tạo graphic cho polygon thứ 15
         const polygonGraphic15 = new Graphic({
           geometry: polygon15,
+<<<<<<< HEAD
+          symbol: fillSymbol15,
+          attributes: {
+            name: "Quận 4",
+            area: "4.18 km²",
+            location: "Phía Nam Thành phố",
+            units: "13 phường",
+            temperature: "30°C",
+            rainfall: "2.5 mm",
+            wind: "12 km/h"
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
+=======
           symbol: fillSymbol15,
         attributes: {
             name: "Quận 4",
@@ -3342,8 +3649,15 @@
               ]
             }]
           }
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         });
         view.graphics.add(polygonGraphic15);
+
+        // Tạo graphic cho polygon thứ 15
+        /* const polygonGraphic15 = new Graphic({
+          geometry: polygon15,
+          symbol: fillSymbol15
+        }); */
 
 
         // Polygon thứ 16 (Quận 3)
@@ -3415,10 +3729,49 @@
           }
         ];
 
+<<<<<<< HEAD
+        const quan3districtData = [
+          {
+            name: "Quận 3",
+            area: "4.92 km²",
+            location: "Trung tâm Thành phố",
+            units: "10 phường"
+          }
+        ];
 
+
+=======
+
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         // Tạo graphic cho polygon thứ 16
         const polygonGraphic16 = new Graphic({
           geometry: polygon16,
+<<<<<<< HEAD
+          symbol: fillSymbol16,
+          attributes: {
+            name: "Quận 3",
+            area: "4.92 km²",
+            location: "Trung tâm Thành phố",
+            units: "10 phường",
+            temperature: "30°C",
+            rainfall: "2.5 mm",
+            wind: "12 km/h"
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
+=======
           symbol: fillSymbol16,
         attributes: {
             name: "Quận 3",
@@ -3443,8 +3796,15 @@
               ]
             }]
           }
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         });
         view.graphics.add(polygonGraphic16);
+
+        // Tạo graphic cho polygon thứ 16
+        /* const polygonGraphic16 = new Graphic({
+          geometry: polygon16,
+          symbol: fillSymbol16
+        }); */
 
 
         // Polygon thứ 17 (Quận 1)
@@ -3533,12 +3893,56 @@
         };
         const popupTemp17 = new PopupTemplate({ title: "Thời tiết tại Quận 1, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>32°C</td></tr><tr><th>Độ ẩm</th><td>76%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>13 km/h</td></tr><tr><th>Lượng mưa</th><td>0mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>31°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>30°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>33°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
 
+        const quan1districtData = [
+          {
+            name: "Quận 1",
+            area: "7.7 km²",  // Cập nhật diện tích Quận 1
+            location: "Trung tâm Thành phố Hồ Chí Minh",  // Cập nhật vị trí Quận 1
+            units: "10 phường"  // Quận 1 có 10 phường
+          }
+        ];
+
         // Tạo graphic cho polygon thứ 17
         const polygonGraphic17 = new Graphic({
           geometry: polygon17,
+<<<<<<< HEAD
+          symbol: fillSymbol17,
+          attributes: {
+            name: "Quận 1",  // Cập nhật tên
+            area: "7.7 km²",  // Cập nhật diện tích
+            location: "Trung tâm Thành phố Hồ Chí Minh",  // Cập nhật vị trí
+            units: "10 phường",  // Cập nhật đơn vị hành chính
+            temperature: "30°C",  // Giả sử nhiệt độ
+            rainfall: "2.5 mm",  // Giả sử lượng mưa
+            wind: "12 km/h"  // Giả sử tốc độ gió
+          },
+
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
+=======
           symbol: fillSymbol17,
           popupTemplate: popupTemp17
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         });
+        view.graphics.add(polygonGraphic17);
+
+        // Tạo graphic cho polygon thứ 17
+        /* const polygonGraphic17 = new Graphic({
+          geometry: polygon17,
+          symbol: fillSymbol17
+        }); */
 
 
         // Polygon thứ 18 (Quận 7)
@@ -3715,12 +4119,58 @@
         };
         const popupTemp18 = new PopupTemplate({ title: "Thời tiết tại Quận 7, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>31°C</td></tr><tr><th>Độ ẩm</th><td>78%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>12 km/h</td></tr><tr><th>Lượng mưa</th><td>1mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>30°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>29°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
 
+        const quan7districtData = [
+          {
+            name: "Quận 7",
+            area: "36.8 km²",  // Cập nhật diện tích Quận 7
+            location: "Khu vực phía Nam Thành phố Hồ Chí Minh",  // Cập nhật vị trí Quận 7
+            units: "10 phường"  // Quận 7 có 10 phường
+          }
+        ];
+
         // Tạo graphic cho polygon thứ 18
         const polygonGraphic18 = new Graphic({
           geometry: polygon18,
+<<<<<<< HEAD
+          symbol: fillSymbol18,
+          attributes: {
+            name: "Quận 7",  // Cập nhật tên
+            area: "36.8 km²",  // Cập nhật diện tích Quận 7
+            location: "Khu vực phía Nam Thành phố Hồ Chí Minh",  // Cập nhật vị trí
+            units: "10 phường",  // Cập nhật đơn vị hành chính
+            temperature: "30°C",  // Giả sử nhiệt độ
+            rainfall: "2.5 mm",  // Giả sử lượng mưa
+            wind: "12 km/h"  // Giả sử tốc độ gió
+          },
+
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
+=======
           symbol: fillSymbol18,
           popupTemplate: popupTemp18
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         });
+
+        view.graphics.add(polygonGraphic18);
+
+
+        // Tạo graphic cho polygon thứ 18
+        /* const polygonGraphic18 = new Graphic({
+          geometry: polygon18,
+          symbol: fillSymbol18
+        }); */
 
 
 
@@ -3926,12 +4376,59 @@
         };
         const popupTemp19 = new PopupTemplate({ title: "Thời tiết tại Quận 2, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>31°C</td></tr><tr><th>Độ ẩm</th><td>77%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>12 km/h</td></tr><tr><th>Lượng mưa</th><td>1mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>30°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>28°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
 
+
+        const quan2districtData = [
+          {
+            name: "Quận 2",
+            area: "50.2 km²",  // Cập nhật diện tích Quận 2
+            location: "Khu vực phía Đông Thành phố Hồ Chí Minh",  // Cập nhật vị trí Quận 2
+            units: "11 phường"  // Quận 2 có 11 phường
+          }
+        ];
+
         // Tạo graphic cho polygon thứ 19
         const polygonGraphic19 = new Graphic({
           geometry: polygon19,
+<<<<<<< HEAD
+          symbol: fillSymbol19,
+          attributes: {
+            name: "Quận 2",  // Cập nhật tên
+            area: "50.2 km²",  // Cập nhật diện tích Quận 2
+            location: "Khu vực phía Đông Thành phố Hồ Chí Minh",  // Cập nhật vị trí
+            units: "11 phường",  // Cập nhật đơn vị hành chính
+            temperature: "30°C",  // Giả sử nhiệt độ
+            rainfall: "2.5 mm",  // Giả sử lượng mưa
+            wind: "12 km/h"  // Giả sử tốc độ gió
+          },
+
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
+=======
           symbol: fillSymbol19,
           popupTemplate: popupTemp19
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         });
+
+        view.graphics.add(polygonGraphic19);
+
+
+        // Tạo graphic cho polygon thứ 19
+        /* const polygonGraphic19 = new Graphic({
+          geometry: polygon19,
+          symbol: fillSymbol19
+        }); */
 
 
         // Polygon thứ 20 (Quận 9)
@@ -4156,15 +4653,63 @@
         };
         const popupTemp20 = new PopupTemplate({ title: "Thời tiết tại Quận 9, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>31°C</td></tr><tr><th>Độ ẩm</th><td>79%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>12 km/h</td></tr><tr><th>Lượng mưa</th><td>2mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>30°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>29°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
 
+
+        const quan9districtData = [
+          {
+            name: "Quận 9",
+            area: "114.3 km²",  // Cập nhật diện tích Quận 9
+            location: "Khu vực phía Đông Thành phố Hồ Chí Minh",  // Cập nhật vị trí Quận 9
+            units: "13 phường"  // Quận 9 có 13 phường
+          }
+        ];
+
         // Tạo graphic cho polygon thứ 20
         const polygonGraphic20 = new Graphic({
           geometry: polygon20,
+<<<<<<< HEAD
+          symbol: fillSymbol20,
+          attributes: {
+            name: "Quận 9",  // Cập nhật tên
+            area: "114.3 km²",  // Cập nhật diện tích Quận 9
+            location: "Khu vực phía Đông Thành phố Hồ Chí Minh",  // Cập nhật vị trí
+            units: "13 phường",  // Cập nhật đơn vị hành chính
+            temperature: "30°C",  // Giả sử nhiệt độ
+            rainfall: "2.5 mm",  // Giả sử lượng mưa
+            wind: "12 km/h"  // Giả sử tốc độ gió
+          },
+
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
+=======
           symbol: fillSymbol20,
           popupTemplate: popupTemp20
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         });
 
+        view.graphics.add(polygonGraphic20);
 
-        // Polygon thứ 21 (Quận Thủ Đức)
+
+
+        // Tạo graphic cho polygon thứ 20
+        /* const polygonGraphic20 = new Graphic({
+          geometry: polygon20,
+          symbol: fillSymbol20
+        }); */
+
+
+        // Polygon thứ 21 (Thành phố Thủ Đức)
         const polygon21 = {
           type: "polygon",
           rings: [
@@ -4450,12 +4995,58 @@
         };
         const popupTemp21 = new PopupTemplate({ title: "Thời tiết tại Quận Thủ Đức, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>29°C</td></tr><tr><th>Độ ẩm</th><td>77%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>11 km/h</td></tr><tr><th>Lượng mưa</th><td>0mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>29°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>28°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>27°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>30°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>29°C, Mưa</span></div></div></div>" });
 
+        const tpthuducdistrictData = [
+          {
+            name: "Thành phố Thủ Đức",
+            area: "211.6 km²",  // Cập nhật diện tích Thành phố Thủ Đức
+            location: "Khu vực phía Đông Thành phố Hồ Chí Minh",  // Cập nhật vị trí Thành phố Thủ Đức
+            units: "34 phường"  // Thành phố Thủ Đức có 34 phường
+          }
+        ];
+
         // Tạo graphic cho polygon thứ 21
         const polygonGraphic21 = new Graphic({
           geometry: polygon21,
+<<<<<<< HEAD
+          symbol: fillSymbol21,
+          attributes: {
+            name: "Thành phố Thủ Đức",  // Cập nhật tên
+            area: "211.6 km²",  // Cập nhật diện tích Thành phố Thủ Đức
+            location: "Khu vực phía Đông Thành phố Hồ Chí Minh",  // Cập nhật vị trí
+            units: "34 phường",  // Cập nhật đơn vị hành chính
+            temperature: "30°C",  // Giả sử nhiệt độ
+            rainfall: "2.5 mm",  // Giả sử lượng mưa
+            wind: "12 km/h"  // Giả sử tốc độ gió
+          },
+
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
+=======
           symbol: fillSymbol21,
           popupTemplate: popupTemp21
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         });
+
+        view.graphics.add(polygonGraphic21);
+
+
+        // Tạo graphic cho polygon thứ 21
+        /* const polygonGraphic21 = new Graphic({
+          geometry: polygon21,
+          symbol: fillSymbol21
+        }); */
 
 
         // Polygon thứ 22 (Quận Bình Thạnh)
@@ -4640,16 +5231,63 @@
         };
         const popupTemp22 = new PopupTemplate({ title: "Thời tiết tại Quận Bình Thạnh, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>31°C</td></tr><tr><th>Độ ẩm</th><td>76%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>12 km/h</td></tr><tr><th>Lượng mưa</th><td>1mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>31°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>30°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>29°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>32°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>30°C, Mưa</span></div></div></div>" });
 
+        const quanbinhthanhdistrictData = [
+          {
+            name: "Quận Bình Thạnh",
+            area: "20.7 km²",  // Cập nhật diện tích Quận Bình Thạnh
+            location: "Khu vực phía Bắc Thành phố Hồ Chí Minh",  // Cập nhật vị trí Quận Bình Thạnh
+            units: "20 phường"  // Quận Bình Thạnh có 20 phường
+          }
+        ];
+
         // Tạo graphic cho polygon thứ 22
         const polygonGraphic22 = new Graphic({
           geometry: polygon22,
+<<<<<<< HEAD
+          symbol: fillSymbol22,
+          attributes: {
+            name: "Quận Bình Thạnh",  // Cập nhật tên
+            area: "20.7 km²",  // Cập nhật diện tích Quận Bình Thạnh
+            location: "Khu vực phía Bắc Thành phố Hồ Chí Minh",  // Cập nhật vị trí
+            units: "20 phường",  // Cập nhật đơn vị hành chính
+            temperature: "30°C",  // Giả sử nhiệt độ
+            rainfall: "2.5 mm",  // Giả sử lượng mưa
+            wind: "12 km/h"  // Giả sử tốc độ gió
+          },
+
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
+=======
           symbol: fillSymbol22,
           popupTemplate: popupTemp22
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         });
 
+        view.graphics.add(polygonGraphic22);
 
 
-        // Polygon thứ 23 (Quận Nhà Bè)
+
+        // Tạo graphic cho polygon thứ 22
+        /* const polygonGraphic22 = new Graphic({
+          geometry: polygon22,
+          symbol: fillSymbol22
+        }); */
+
+
+
+        // Polygon thứ 23 (Huyện Nhà Bè)
         const polygon23 = {
           type: "polygon",
           rings: [
@@ -5027,12 +5665,60 @@
         };
         const popupTemp23 = new PopupTemplate({ title: "Thời tiết tại Quận Nhà Bè, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>29°C</td></tr><tr><th>Độ ẩm</th><td>83%</td></tr><tr><th>Hướng gió</th><td>Đông Nam</td></tr><tr><th>Tốc độ gió</th><td>12 km/h</td></tr><tr><th>Lượng mưa</th><td>1mm</td></tr><tr><th>Tình trạng</th><td>Nắng nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>29°C, Nắng</span></div><div class='forecast-item'><span>17:00</span><span>28°C, Mây</span></div><div class='forecast-item'><span>20:00</span><span>27°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>30°C, Nắng</span></div><div class='forecast-item'><span>Ngày mốt</span><span>28°C, Mưa</span></div></div></div>" });
 
+
+        const huyennhabedistrictData = [
+          {
+            name: "Huyện Nhà Bè",
+            area: "100.1 km²",  // Cập nhật diện tích Huyện Nhà Bè
+            location: "Khu vực phía Nam Thành phố Hồ Chí Minh",  // Cập nhật vị trí Huyện Nhà Bè
+            units: "7 xã, 1 thị trấn"  // Huyện Nhà Bè có 7 xã và 1 thị trấn
+          }
+        ];
+
         // Tạo graphic cho polygon thứ 23
         const polygonGraphic23 = new Graphic({
           geometry: polygon23,
+<<<<<<< HEAD
+          symbol: fillSymbol23,
+          attributes: {
+            name: "Huyện Nhà Bè",  // Cập nhật tên
+            area: "100.1 km²",  // Cập nhật diện tích Huyện Nhà Bè
+            location: "Khu vực phía Nam Thành phố Hồ Chí Minh",  // Cập nhật vị trí
+            units: "7 xã, 1 thị trấn",  // Cập nhật đơn vị hành chính
+            temperature: "30°C",  // Giả sử nhiệt độ
+            rainfall: "2.5 mm",  // Giả sử lượng mưa
+            wind: "12 km/h"  // Giả sử tốc độ gió
+          },
+
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
+=======
           symbol: fillSymbol23,
           popupTemplate: popupTemp23
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         });
+
+        view.graphics.add(polygonGraphic23);
+
+
+
+        // Tạo graphic cho polygon thứ 23
+        /* const polygonGraphic23 = new Graphic({
+          geometry: polygon23,
+          symbol: fillSymbol23
+        }); */
 
 
         // Polygon thứ 24 (Huyện Cần Giờ)
@@ -5457,23 +6143,70 @@
         };
         const popupTemp24 = new PopupTemplate({ title: "Thời tiết tại Huyện Cần Giờ, Hồ Chí Minh", content: "<div class='popup'><div style='text-align: center;'><img src='https://www.weatherbit.io/static/img/icons/c01d.png' alt='Weather Icon' style='width: 50px; height: 50px;'></div><div class='info'><table><tr><th>Nhiệt độ</th><td>29°C</td></tr><tr><th>Độ ẩm</th><td>85%</td></tr><tr><th>Hướng gió</th><td>Đông</td></tr><tr><th>Tốc độ gió</th><td>10 km/h</td></tr><tr><th>Lượng mưa</th><td>5mm</td></tr><tr><th>Tình trạng</th><td>Mưa nhẹ</td></tr><tr><th>Cập nhật</th><td>14:30</td></tr></table></div><div class='forecast'><h4>Dự báo theo giờ:</h4><div class='forecast-item'><span>14:00</span><span>29°C, Mưa nhẹ</span></div><div class='forecast-item'><span>17:00</span><span>28°C, Mưa</span></div><div class='forecast-item'><span>20:00</span><span>27°C, Mưa nhẹ</span></div></div><div class='forecast'><h4>Dự báo ngắn hạn:</h4><div class='forecast-item'><span>Ngày mai</span><span>30°C, Mưa</span></div><div class='forecast-item'><span>Ngày mốt</span><span>29°C, Mưa rào</span></div></div></div>" });
 
+
+        const huyencangiodistrictData = [
+          {
+            name: "Huyện Cần Giờ",
+            area: "704.8 km²",  // Cập nhật diện tích Huyện Cần Giờ
+            location: "Khu vực phía Nam Thành phố Hồ Chí Minh, giáp biển",  // Cập nhật vị trí Huyện Cần Giờ
+            units: "8 xã, 1 thị trấn"  // Huyện Cần Giờ có 8 xã và 1 thị trấn
+          }
+        ];
+
         // Tạo graphic cho polygon thứ 24
         const polygonGraphic24 = new Graphic({
           geometry: polygon24,
+<<<<<<< HEAD
+          symbol: fillSymbol24,
+          attributes: {
+            name: "Huyện Cần Giờ",  // Cập nhật tên
+            area: "704.8 km²",  // Cập nhật diện tích Huyện Cần Giờ
+            location: "Khu vực phía Nam Thành phố Hồ Chí Minh, giáp biển",  // Cập nhật vị trí
+            units: "8 xã, 1 thị trấn",  // Cập nhật đơn vị hành chính
+            temperature: "30°C",  // Giả sử nhiệt độ
+            rainfall: "2.5 mm",  // Giả sử lượng mưa
+            wind: "12 km/h"  // Giả sử tốc độ gió
+          },
+
+          popupTemplate: {
+            title: "{name}",
+            content: [{
+              type: "fields",
+              fieldInfos: [
+                { fieldName: "area", label: "Diện tích" },
+                { fieldName: "location", label: "Vị trí" },
+                { fieldName: "units", label: "Đơn vị hành chính" },
+                { fieldName: "temperature", label: "Nhiệt độ" },
+                { fieldName: "rainfall", label: "Lượng mưa" },
+                { fieldName: "wind", label: "Tốc độ gió" }
+              ]
+            }]
+          }
+=======
           symbol: fillSymbol24,
           popupTemplate: popupTemp24
+>>>>>>> 79a166e872fbc81a8601936e6bf7cc564be66b78
         });
+
+        view.graphics.add(polygonGraphic24);
+
+
+        // Tạo graphic cho polygon thứ 24
+        /* const polygonGraphic24 = new Graphic({
+          geometry: polygon24,
+          symbol: fillSymbol24
+        }); */
 
 
 
         // Add the graphics to the view's graphics layer
         // view.graphics.add(polygonGraphic); -->
-        view.graphics.addMany([polygonGraphic1, polygonGraphic2, polygonGraphic3, polygonGraphic4,
-          polygonGraphic5, polygonGraphic6, polygonGraphic7, polygonGraphic8,
-          polygonGraphic9, polygonGraphic10, polygonGraphic11, polygonGraphic12,
-          polygonGraphic13, polygonGraphic14, polygonGraphic15, polygonGraphic16,
-          polygonGraphic17, polygonGraphic18, polygonGraphic19, polygonGraphic20,
-          polygonGraphic21, polygonGraphic22, polygonGraphic23, polygonGraphic24]);
+        //view.graphics.addMany([polygonGraphic1, polygonGraphic2, polygonGraphic3, polygonGraphic4,
+        //  polygonGraphic5, polygonGraphic6, polygonGraphic7, polygonGraphic8,
+        //  polygonGraphic9, polygonGraphic10, polygonGraphic11, polygonGraphic12,
+        //  polygonGraphic13, polygonGraphic14, polygonGraphic15, polygonGraphic16,
+        //  polygonGraphic17, polygonGraphic18, polygonGraphic19, polygonGraphic20,
+        //  polygonGraphic21, polygonGraphic22, polygonGraphic23, polygonGraphic24]);
 
 
         /***************************
@@ -5655,11 +6388,81 @@
           phamVanChieuTextGraphic,
         ]);
 
-
         /***************************
-           * Hân - Create 3 public points
-           ***************************/
-        view.graphics.addMany(createThreePublicPoint(Point, Graphic));
+         * Hân - Create 3 public points
+         ***************************/
+        const publicPoints = [
+          {
+            name: "Vietnam Bankers Association",
+            longitude: 106.70423786749457,
+            latitude: 10.769599186091465,
+            address:
+              "8 Đ. Võ Văn Kiệt, Phường Nguyễn Thái Bình, Quận 1, Hồ Chí Minh 70000, Vietnam",
+            phoneNumber: "02838213957",
+            url: "https://napsg-web.s3.amazonaws.com/symbology/data/PNG9/infrastructure/CRTINS_FINANC/FDIC_InsuredBanks_256x256.png",
+            image:
+              "https://cafefcdn.com/thumb_w/640/203337114487263232/2023/11/22/nhnn-17006602955151100543589-0-59-769-1289-crop-1700660304811454439439.png",
+          },
+          {
+            name: "Military Hospital 175",
+            longitude: 106.68005742701499,
+            latitude: 10.819904122762964,
+            address:
+              "786 Đ. Nguyễn Kiệm, Phường 3, Gò Vấp, Hồ Chí Minh, Vietnam",
+            phoneNumber: "19001175",
+            url: "https://napsg-web.s3.amazonaws.com/symbology/data/PNG9/lifelines/Health_and_Medical/health-and-medical-with-label-red-halo_256x256.png",
+            image:
+              "https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-asm/blog/benh-vien-quan-y-115.webp",
+          },
+          {
+            name: "Tan Son Nhat International Airport",
+            longitude: 106.66407794639869,
+            latitude: 10.816075698832357,
+            address: "Đ. Trường Sơn, Phường 2, Tân Bình, Hồ Chí Minh, Vietnam",
+            phoneNumber: "02838485383",
+            url: "https://napsg-web.s3.amazonaws.com/symbology/data/PNG9/lifelines/Transportation/transportation_aviation-green-halo_256x256.png",
+            image:
+              "https://sbay.com.vn/upload/editor/%E1%BA%A2nh%20%20%C4%91%C3%A0o%20t%E1%BA%A1o%20h%E1%BB%87%20th%E1%BB%91ng/tan-son-nhat.jpg",
+          },
+        ];
+        publicPoints.forEach((publicPoint) => {
+          const point = {
+            type: "point",
+            longitude: publicPoint.longitude,
+            latitude: publicPoint.latitude,
+          };
+
+          // Create symbol picture
+          var symbol = {
+            type: "picture-marker",
+            url: publicPoint.url,
+            width: "32px",
+            height: "32px",
+          };
+
+          // create attributes
+          const attributes = {
+            Name: publicPoint.name,
+            Location: publicPoint.address,
+            PhoneNumber: publicPoint.phoneNumber,
+            Image: publicPoint.image,
+          };
+          // Create popup template
+          const popupTemplate = {
+            title: publicPoint.name,
+            content:
+              "<div class='popup-content'><img src='{Image}' height='200px' alt='image description'></div> <br> <b>{Name}</b> located at <b>{Location}</b>. <br> Phone Number: <b>{PhoneNumber}</b>",
+          };
+          // Create graphic
+          const pointGraphic = new Graphic({
+            geometry: point,
+            symbol: symbol,
+            attributes: attributes,
+            popupTemplate: popupTemplate,
+          });
+          view.graphics.add(pointGraphic);
+        });
+
 
       });
   </script>
