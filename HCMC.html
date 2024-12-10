@@ -6,7 +6,7 @@
   <title>Bản đồ 2D Thành phố Hồ Chí Minh</title>
 
   <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css" />
-  <script src="https://js.arcgis.com/4.26/"></script>  
+  <script src="https://js.arcgis.com/4.26/"></script>
 
   <style>
     html,
@@ -6022,6 +6022,192 @@
           nguyenVanKhoiTextGraphic,
           phamVanChieuTextGraphic,
         ]);
+
+
+
+
+        /***************************
+                **** Dụng - Tạo 3 đường ***
+                ***************************/
+        const CongHoaLine = {
+          type: "polyline",
+          paths: [
+            [106.63528433, 10.80712309],
+            [106.63664097, 10.80569803],
+            [106.63868812, 10.80314718],
+            [106.64338473, 10.80231667],
+            [106.64781598, 10.80193051],
+            [106.65489336, 10.80135196],
+            [106.65938823, 10.80101022],
+            [106.66295127, 10.80062918],
+          ],
+        };
+
+        const CongHoaSymbol = {
+          type: "simple-line",
+          color: [255, 0, 0],
+          width: 4,
+        };
+
+        const CongHoaGraphic = new Graphic({
+          geometry: CongHoaLine,
+          symbol: CongHoaSymbol,
+          attributes: {
+            name: "Cộng Hòa",
+            length: "4.5 km",
+            type: "Đường khu vực",
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: "Chiều dài: {length}<br>Loại đường: {type}",
+          },
+        });
+
+        const HoangVanThuLine = {
+          type: "polyline",
+          paths: [
+            [106.66603071, 10.8003507,],
+            [106.66760668, 10.8002576,],
+            [106.66975488, 10.80004144],
+            [106.67315108, 10.79975105],
+            [106.67588774, 10.79972782],
+            [106.68003577, 10.79924083],
+          ],
+        };
+
+        const HoangVanThuSymbol = {
+          type: "simple-line",
+          color: [0, 255, 0],
+          width: 4,
+        };
+
+        const HoangVanThuGraphic = new Graphic({
+          geometry: HoangVanThuLine,
+          symbol: HoangVanThuSymbol,
+          attributes: {
+            name: "Hoàng Văn Thụ",
+            length: "3.5 km",
+            type: "Đường chính",
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: "Chiều dài: {length}<br>Loại đường: {type}",
+          },
+        });
+
+        const LeVanSyLine = {
+          type: "polyline",
+          paths: [
+            [106.66125996, 10.79957542],
+            [106.66237108, 10.79882033],
+            [106.66461436, 10.79709498],
+            [106.66758985, 10.79484466],
+            [106.67009655, 10.79296399],
+            [106.67201109, 10.79154178],
+            [106.68033482, 10.78654981],
+          ],
+        };
+
+        const LeVanSySymbol = {
+          type: "simple-line",
+          color: [0, 0, 255],
+          width: 4,
+        };
+
+        const LeVanSyGraphic = new Graphic({
+          geometry: LeVanSyLine,
+          symbol: LeVanSySymbol,
+          attributes: {
+            name: "Lê Văn Sỹ",
+            length: "2.7 km",
+            type: "Đường nội bộ",
+          },
+          popupTemplate: {
+            title: "{name}",
+            content: "Chiều dài: {length}<br>Loại đường: {type}",
+          },
+        });
+
+        const CongHoaText = {
+          type: "point",
+          longitude: 106.64794,
+          latitude: 10.80247,
+        };
+
+        const CongHoaTextSymbol = {
+          type: "text",
+          color: [255, 0, 0],
+          text: "Cộng Hòa",
+          haloColor: "white",
+          haloSize: "1px",
+          font: {
+            size: 12,
+            weight: "bold",
+          },
+        };
+
+        const CongHoaTextGraphic = new Graphic({
+          geometry: CongHoaText,
+          symbol: CongHoaTextSymbol,
+        });
+
+        const HoangVanThuText = {
+          type: "point",
+          longitude: 106.66687,
+          latitude: 10.80062,
+        };
+
+        const HoangVanThuTextSymbol = {
+          type: "text",
+          color: [0, 255, 0],
+          text: "Hoàng Văn Thụ",
+          haloColor: "white",
+          haloSize: "1px",
+          font: {
+            size: 12,
+            weight: "bold",
+          },
+        };
+
+        const HoangVanThuTextGraphic = new Graphic({
+          geometry: HoangVanThuText,
+          symbol: HoangVanThuTextSymbol,
+        });
+
+        const LeVanSyText = {
+          type: "point",
+          longitude: 106.67035,
+          latitude: 10.79292,
+        };
+
+        const LeVanSyTextSymbol = {
+          type: "text",
+          color: [0, 0, 255],
+          text: "Lê Văn Sỹ",
+          haloColor: "white",
+          haloSize: "1px",
+          font: {
+            size: 12,
+            weight: "bold",
+          },
+        };
+
+        const LeVanSyTextGraphic = new Graphic({
+          geometry: LeVanSyText,
+          symbol: LeVanSyTextSymbol,
+        });
+
+        view.graphics.addMany([
+          CongHoaGraphic,
+          HoangVanThuGraphic,
+          LeVanSyGraphic,
+          CongHoaTextGraphic,
+          HoangVanThuTextGraphic,
+          LeVanSyTextGraphic,
+        ]);
+
+
+
 
         /***************************
          * Hân - Create 3 public points
